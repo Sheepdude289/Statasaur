@@ -529,6 +529,28 @@ main {
     color: #2c3e50; /* Darker text for better contrast */
 }
 
+/* Style for passive ability in comparison preview cards */
+
+.dino-preview .dino-passive {
+    margin-top: 10px;
+    padding: 12px 15px;
+    background: #252525; /* Match comparison table passive description background */
+    border-left: 4px solid #007bff;
+    border-radius: 6px; /* Match the border radius from comparison table */
+}
+
+.dino-preview .passive-name {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.dino-preview .passive-desc {
+    font-size: 0.9em;
+    color: #e0e0e0;
+    line-height: 1.4;
+}
+
 .dino-special[data-special="Classic"],
 .dino-special[data-special="classic"] {
     background: #3498db; /* Blue for classic */
@@ -610,7 +632,7 @@ main {
     background: #252525;
     padding: 10px;
     border-radius: 4px;
-    border-left: 3px solid #4a90e2;
+    border-left: 4px solid #4a90e2;
 }
 
 .passive-name {
@@ -706,24 +728,23 @@ main {
 
 .dino-select:focus {
     outline: none;
-    border-color: #4a90e2;
-    background-color: #333;
 }
 
 .dino-preview {
-    background: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 20px;
-    min-height: 200px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    color: #e0e0e0;
+background: #1e1e1e;
+border: 1px solid #333;
+border-radius: 8px;
+padding: 20px;
+margin-top: 10px;
+transition: transform 0.2s, box-shadow 0.2s;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s, box-shadow 0.3s;
+color: #e0e0e0;
 }
 
 .dino-preview:hover {
@@ -782,7 +803,7 @@ main {
     border-radius: 8px;
     padding: 20px;
     margin-top: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px #0000004d;
 }
 
 .comparison-row {
@@ -804,9 +825,15 @@ main {
 }
 
 .comparison-row.passive-ability {
+    background-color: #1e1e1e;
     align-items: flex-start;
     padding: 15px 0;
     min-height: 80px; /* Ensure consistent height */
+}
+
+/* Remove blue line from the entire passive row in comparison */
+.comparison-row.passive-ability {
+    border-left: none;
 }
 
 .comparison-row.passive-ability .dino-stat {
@@ -822,6 +849,11 @@ main {
     line-height: 1.5;
     scrollbar-width: thin;
     scrollbar-color: #555 #2d2d2d;
+}
+
+/* Keep the blue line for the definition in the dino card */
+.dino-passive .passive-ability {
+    border-left: 3px solid #4a90e2;
 }
 
 /* Webkit scrollbar styles */
@@ -876,55 +908,63 @@ main {
 }
 
 /* Highlight differences */
+.comparison-row .dino-stat {
+    position: relative;
+    padding-right: 2.5rem; /* Space for the indicator */
+    min-width: 4rem; /* Ensure minimum width */
+    box-sizing: border-box;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
 .higher {
     color: #2ecc71;
-    font-weight: 600;
-    padding-right: 1.2em;
 }
 
 .higher::after {
     content: '↑';
     position: absolute;
-    right: 0.2em;
+    right: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
     font-size: 1rem;
     font-weight: bold;
     line-height: 1;
+    pointer-events: none;
+    width: 1rem;
+    text-align: center;
 }
 
 .lower {
     color: #e74c3c;
     opacity: 0.7;
-    padding-right: 1.2em;
 }
 
 .lower::after {
     content: '↓';
     position: absolute;
-    right: 0.2em;
+    right: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
     font-size: 1rem;
     font-weight: bold;
-    line-height: 1;
 }
 
 .equal {
-    color: #7f8c8d; /* Neutral gray for equal values */
-    padding-right: 1.2em;
+    color: #7f8c8d;
 }
 
 .equal::after {
     content: '=';
     position: absolute;
-    right: 0.2em;
-    top: 0.5em; /* Adjust vertical alignment */
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 1rem;
     font-weight: bold;
     line-height: 1;
-    display: inline-block;
-    vertical-align: middle;
+    pointer-events: none;
+    width: 1rem;
+    text-align: center;
 }
 
 /* Responsive adjustments */
