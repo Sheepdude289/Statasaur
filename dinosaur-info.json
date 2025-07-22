@@ -3,7 +3,7 @@
     "name": "Ankylosaurus",
     "diet": "herbivore",
     "attacks": [[175], [200], [235]],
-    "health": 2675,
+    "health": 2200,
     "walkSpeed": 10,
     "sprintSpeed": 21,
     "special": "Classic",
@@ -48,7 +48,7 @@
     "health": 1500,
     "walkSpeed": 15,
     "sprintSpeed": 45,
-    "special": "Classic",
+    "special": "Limited",
     "price": { "amount": 2500, "currency": "DinoCoins" },
     "passive": {
       "name": "Runner",
@@ -198,10 +198,10 @@
   {
     "name": "Invictus Rex",
     "diet": "carnivore",
-    "attacks": [[135], [85, 100], [220]],
+    "attacks": [[150], [85, 100], [220]],
     "health": 2300,
     "walkSpeed": 13,
-    "sprintSpeed": 25,
+    "sprintSpeed": 26,
     "special": "Hybrid",
     "price": { "amount": 70000, "currency": "DinoCoins", "notes": "Usually 75000" },
     "passive": {
